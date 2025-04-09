@@ -2,8 +2,9 @@ import streamlit as st
 import os
 from datetime import datetime
 
-# Local folder path
-local_folder_path = r"C:\Users\patel\Oldendorff Carriers\Performance Desk - Documents\Performance Evaluations\1SNC"
+# Folder accessible in Streamlit Cloud environment
+local_folder_path = "uploaded_files"
+os.makedirs(local_folder_path, exist_ok=True)
 
 st.title("Upload File to Local Folder - 1SNC")
 
@@ -26,4 +27,4 @@ if st.button("Upload File"):
         with open(file_path, "wb") as f:
             f.write(uploaded_file.read())
 
-        st.success(f"File saved successfully to the local folder as '{new_file_name}'!")
+        st.success(f"File saved successfully as '{new_file_name}' in 'uploaded_files' folder!")
